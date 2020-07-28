@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Box, withStyles, Typography } from '@material-ui/core';
+import { Box, withStyles } from '@material-ui/core';
 
 import Home from './home';
 

@@ -115,7 +115,7 @@ export class SortingTable extends Component {
     return (
       <TableRow>
         {tableHead.map((header) => (
-          <TableCell {...header.props}>
+          <TableCell {...header.props} key={header.id}>
             <TableSortLabel
               active={coloumn === header.id}
               direction={coloumn === header.id ? direction : 'asc'}
@@ -144,10 +144,10 @@ export class SortingTable extends Component {
     return (
       tableBody
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map((row) => (
-          <TableRow>
+        .map((row, index) => (
+          <TableRow key={index}>
             {tableHead.map((cell) => 
-              <TableCell>
+              <TableCell key={cell.id}>
                 <Typography variant="body1">
                   {row[cell.id]}
                 </Typography>

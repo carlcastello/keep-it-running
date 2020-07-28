@@ -59,8 +59,8 @@ class CampaignProgress extends Component {
         <LinearProgress
           className={progressBar}
           variant="buffer"
-          value="70"
-          valueBuffer="85"/>
+          value={70}
+          valueBuffer={85}/>
       </Grid>
     )
   }
