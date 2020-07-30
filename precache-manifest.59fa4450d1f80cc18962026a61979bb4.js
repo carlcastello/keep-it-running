@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6bf22e2b6cc810ade0ec0fcde101d863",
+    "revision": "07930f5365f9210106013bca351fe0a5",
     "url": "/keep-it-running/index.html"
   },
   {
-    "revision": "df72c15fd4aeebf0f938",
+    "revision": "e440f2f0bf26a387ea38",
     "url": "/keep-it-running/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/keep-it-running/static/js/2.d7a079e7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "df72c15fd4aeebf0f938",
-    "url": "/keep-it-running/static/js/main.35ae78cd.chunk.js"
+    "revision": "e440f2f0bf26a387ea38",
+    "url": "/keep-it-running/static/js/main.f1252c86.chunk.js"
   },
   {
     "revision": "29ab1a084f29156646cf",
