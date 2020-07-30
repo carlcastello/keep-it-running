@@ -4,63 +4,58 @@ import { withStyles, Grid, Typography, Box, LinearProgress } from '@material-ui/
 
 import styles from './styles';
 
+
+const CAMPAIGN_PROGRESS = [
+  {key: 'goal', label: 'Goal'},
+  {key: 'fundsRaised', label: 'Funds Raised'},
+  {key: 'distanceRaised', label: 'Distance Raised'},
+  {key: 'ranDistance', label: 'Total Ran'},
+]
+
 class CampaignProgress extends Component {
  
-  renderCard(header, description) {
+  renderCard = (element) => {
+    const {
+      data
+    } = this.props;
+
     return (
-      <Grid item sm={3}>
+      <Grid key={element.key} item sm={3} xs={6}>
         <Box marginBottom={.25}>
           <Typography variant="h3">
-            {header}
+            {data[element.key].label}
           </Typography>
         </Box>
         <Box>
           <Typography variant="body1">
-            {description}
+            {element.label}
           </Typography>
         </Box>
       </Grid>
     );
   }
 
-  renderFundsRaised() {
-    return (
-      this.renderCard('$232', 'Funds Raised')
-    );
-  }
-
-  renderTotalParticipants() {
-    return (
-      this.renderCard('50', 'Participants')
-    );
-  }
-
-  renderTotalKilometers() {
-    return (
-      this.renderCard('45.5KM', 'Total Distance')
-    );
-  }
-
-  renderTotalRan() {
-    return (
-      this.renderCard('38.5KM', 'Total Ran')
-    )
-  }
-
-  renderProgressBar() {
+  renderKMProgressBar() {
     const {
+      data,
       classes: {
         progressBar
       }
     } = this.props;
+
+    const goalKM = data.goal.value / 2;
+    const fundsRaisedKM = data.fundsRaised.value / 2;
+
+    const totalRanInPercentage = (data.ranDistance.value / goalKM) * 100;
+    const totalFundsRaisedInPercentage = (fundsRaisedKM / goalKM) * 100;
 
     return (
       <Grid item xs={12}>
         <LinearProgress
           className={progressBar}
           variant="buffer"
-          value={70}
-          valueBuffer={85}/>
+          value={totalRanInPercentage}
+          valueBuffer={totalFundsRaisedInPercentage}/>
       </Grid>
     )
   }
@@ -82,11 +77,8 @@ class CampaignProgress extends Component {
             Progress
           </Typography>
         </Grid>
-        {this.renderTotalParticipants()}
-        {this.renderFundsRaised()}
-        {this.renderTotalKilometers()}
-        {this.renderTotalRan()}
-        {this.renderProgressBar()}
+        {CAMPAIGN_PROGRESS.map(this.renderCard)}
+        {this.renderKMProgressBar()}
       </Grid>
     );
   }

@@ -10,10 +10,12 @@ import {
   TableSortLabel,
   Typography
 } from '@material-ui/core';
+
+
 import { NUMERIC, DATE, ALPHABET } from './constants';
 
 
-export class SortingTable extends Component {
+export default class SortingTable extends Component {
   
   state = {
     page: 0,
@@ -176,18 +178,20 @@ export class SortingTable extends Component {
         <TableBody>
           {this.renderTableBodyRow()}
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[]}
-              count={tableBody.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onChangePage={this.handleChangePage}/> 
-          </TableRow>
-        </TableFooter>
+        {tableBody.length > 10 ? 
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[]}
+                count={tableBody.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onChangePage={this.handleChangePage}/> 
+            </TableRow>
+          </TableFooter> :
+          null
+        }
       </Table>
     );  
   }
 }
-

@@ -6,25 +6,9 @@ import TitleDescription from './components/title-description';
 import CampaignProgress from './components/campaign-progress';
 import DonatorsList from './components/donators-list';
 
+import { progress, donatorsList } from './data';
+
 class Home extends Component {
-
-  renderDescription() {
-    return (
-      <TitleDescription/>
-    )
-  }
-
-  renderCampaignProgress() {
-    return (
-      <CampaignProgress/>
-    )
-  }
-
-  renderDonationsList() {
-    return (
-      <DonatorsList/>
-    )
-  }
 
   render() {
     return (
@@ -33,9 +17,9 @@ class Home extends Component {
         flexDirection="column"
         alignSelf="center"
         maxWidth="700px">
-        {this.renderDescription()}
-        {this.renderCampaignProgress()}
-        {this.renderDonationsList()}
+        <TitleDescription/>
+        <CampaignProgress data={progress}/>
+        <DonatorsList data={donatorsList}/>
       </Box>
     )
   }

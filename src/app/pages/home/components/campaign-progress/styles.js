@@ -7,7 +7,7 @@ export default (theme) => ({
     height: theme.spacing(2),
     backgroundColor: '#d6d6d6',
     '&::after': {
-      content: '"60KM"',
+      content: props => `'${props.data.goal.value / 2}KM'`,
       position: 'absolute',
       padding: theme.spacing(.5),
       right: '0',
@@ -20,7 +20,7 @@ export default (theme) => ({
     },
     '& > .MuiLinearProgress-bar1Buffer': {
       '&::after': {
-        content: '"38KM"',
+        content: props => `'${props.data.ranDistance.label}'`,
         position: 'absolute',
         padding: theme.spacing(.5),
         right: '0',
@@ -30,7 +30,7 @@ export default (theme) => ({
     },
     '& > .MuiLinearProgress-bar2Buffer': {
       '&::after': {
-        content: '"45.5KM"',
+        content: props => `'${props.data.distanceRaised.label}'`,
         position: 'absolute',
         padding: theme.spacing(.5),
         right: '0',
